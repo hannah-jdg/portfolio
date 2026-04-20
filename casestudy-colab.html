@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - CO&middot;LAB - Connecting Students and Local Organizations Through Design</title>
+  <link rel="icon" type="image/png" href="images/icon2.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-header-inner">
+          <a class="site-logo" href="index.html">
+            <span class="site-logo-text">
+              <span class="site-logo-primary">Hannah</span>
+              <span class="site-logo-secondary">Gagnon</span>
+            </span>
+          </a>
+          <div id="site-nav-panel" class="site-nav-panel">
+            <nav class="site-nav" aria-label="Main navigation">
+              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="misc.html">Misc.</a>
+            </nav>
+            <a class="nav-link site-nav-contact nav-link--external" href="contact.html">Contact<span class="nav-external-mark" aria-hidden="true">&#8599;</span></a>
+            <div class="nav-overlay-icons" aria-hidden="true">
+              <img src="images/icon1.png" alt="">
+              <img src="images/icon2.png" alt="">
+              <img src="images/icon3.png" alt="">
+            </div>
+          </div>
+          <button type="button" class="nav-overlay-close nav-overlay-close--in-panel" aria-label="Close menu">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </button>
+          <div class="nav-toggle-wrap">
+            <button type="button" class="nav-overlay-close" aria-label="Close menu">
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+            </button>
+            <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav-panel">
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <div class="container">
+        <div class="case-layout">
+          <a class="case-back-link case-back-link--mobile-only" href="index.html#work">&larr; Back</a>
+          <aside class="case-sidebar">
+            <a class="case-back-link" href="index.html#work">&larr; Back</a>
+            <nav class="case-sidebar-nav" aria-label="Case study sections">
+              <ul>
+                <li><a href="#project-details" class="is-active">Project Details</a></li>
+                <li><a href="#project-overview">Overview</a></li>
+                <li><a href="#research">RESEARCH</a></li>
+                <li><a href="#mvp-development">MVP DEVELOPMENT</a></li>
+                <li><a href="#design-system">DESIGN SYSTEM</a></li>
+                <li><a href="#final-thoughts">FINAL THOUGHTS</a></li>
+              </ul>
+            </nav>
+          </aside>
+
+          <article class="case-content">
+            <header class="case-header">
+              <p class="case-eyebrow">Product design &middot; Capstone &middot; January - April 2026</p>
+              <h1 class="case-title">CO&middot;LAB - Connecting Students and Local Organizations Through Design</h1>
+            </header>
+
+            <img
+              class="case-image"
+              src="images/co-lab-main.png"
+              alt="CO&middot;LAB landing page mockup on a laptop: hero headline, lime green accents, and browse projects CTA."
+            >
+
+            <section id="project-details" class="case-section" data-scroll-section>
+              <h2 class="case-section-heading visually-hidden">Project Details</h2>
+              <div class="case-details-grid case-details-grid--3">
+                <div class="case-detail-group">
+                  <p class="case-detail-label">Timeline</p>
+                  <p class="case-detail-body">
+                    January - April 2026
+                  </p>
+                </div>
+                <div class="case-detail-group">
+                  <p class="case-detail-label">What I did</p>
+                  <p class="case-detail-body">
+                    Research<br>
+                    Product Design<br>
+                    Prototyping
+                  </p>
+                </div>
+                <div class="case-detail-group">
+                  <p class="case-detail-label">Tools Used</p>
+                  <p class="case-detail-body">
+                    Figma<br>
+                    FigJam
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="project-overview" class="case-section" data-scroll-section>
+              <div class="case-split case-split--section-lead">
+                <h2 class="case-subheading">Overview</h2>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    CO&middot;LAB was my final semester capstone project. It is a concept for a web platform that matches design students with local organizations who are seeking creative help.
+                  </p>
+                </div>
+              </div>
+
+              <div class="case-split">
+                <h3 class="case-subheading">The Problem</h3>
+                <div class="case-split-body">
+                  <p class="case-body case-body--lead">
+                    Nonprofits often lack budget for dedicated design roles, while students struggle to find projects with real stakeholders and constraints.
+                  </p>
+                  <p class="case-body">
+                    I asked myself: how might we help both students seeking more experience and local orgs that don&rsquo;t have the budget for creative help?
+                  </p>
+                </div>
+              </div>
+              <video
+                class="case-video"
+                src="videos/homepage-scroll.mov"
+                preload="none"
+                autoplay
+                muted
+                loop
+                playsinline
+                aria-label="CO&middot;LAB homepage scroll-through"
+              ></video>
+            </section>
+
+            <section id="research" class="case-section" data-scroll-section>
+              <h2 class="case-section-heading">RESEARCH</h2>
+              <div class="case-split">
+                <h3 class="case-subheading">What I did</h3>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    I interviewed nonprofits and design students, grouped the notes into themes, and used that to focus CO&middot;LAB on fairness and trust.
+                  </p>
+                </div>
+              </div>
+              <img
+                class="case-image"
+                src="images/screens-1.png"
+                alt="CO&middot;LAB UI mockups: landing hero, project detail, student dashboard with submissions, browse briefs grid, and submission summary."
+              >
+            </section>
+
+            <section id="mvp-development" class="case-section" data-scroll-section>
+              <h2 class="case-section-heading">MVP DEVELOPMENT</h2>
+              <div class="case-split">
+                <h3 class="case-subheading">MVP GOAL</h3>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    Students can find a project they like, understand the requirements, submit work, and understand usage rights.
+                  </p>
+                </div>
+              </div>
+              <div class="case-split">
+                <h3 class="case-subheading">MVP OUTCOME</h3>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    User testing went well: testers completed every task without help, understood what the platform was for, and were clear on usage rights. Feedback on my early UI and UX, including text sizing, icons, and button placement, helped refine the final design.
+                  </p>
+                </div>
+              </div>
+              <img
+                class="case-image"
+                src="images/tabview.png"
+                alt="CO&middot;LAB interface shown in a browser tab view with multiple open tabs."
+              >
+            </section>
+
+            <section id="design-system" class="case-section" data-scroll-section>
+              <h2 class="case-section-heading">DESIGN SYSTEM</h2>
+              <div class="case-split">
+                <h3 class="case-subheading">What I did</h3>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    I pulled together a small design system for CO&middot;LAB so the product would feel consistent as I prototyped: the color palette, logo, typography, and a set of icons for navigation and key moments in the flow.
+                  </p>
+                </div>
+              </div>
+              <div class="case-split">
+                <h3 class="case-subheading">What I would change</h3>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    I would like to keep refining this further and bring more personality into the platform over time, but this is what I was working with for the project.
+                  </p>
+                </div>
+              </div>
+              <img
+                class="case-image"
+                src="images/visual-colours.png"
+                alt="CO&middot;LAB color palette: brand greens, neutrals, and accent swatches with hex values."
+              >
+              <img
+                class="case-image"
+                src="images/visual-type.png"
+                alt="CO&middot;LAB typography: heading and body type scale, weights, and sample text styles."
+              >
+              <img
+                class="case-image"
+                src="images/visual-icons.png"
+                alt="CO&middot;LAB icon set: UI and navigation icons in the brand line style."
+              >
+            </section>
+
+            <section id="final-thoughts" class="case-section" data-scroll-section>
+              <h2 class="case-section-heading">FINAL THOUGHTS</h2>
+              <div class="case-split">
+                <h3 class="case-subheading">Challenges</h3>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    My main challenges were time and time management. I got pretty busy with my practicum placement while I was working on this project, so I had to stay honest about how much I could take on.
+                  </p>
+                  <p class="case-body">
+                    At times I was indecisive, especially when it came to the design system, and I sometimes focused on things that did not need that much attention yet. I started with a really large scope and had to narrow down a lot on what I could actually make in the time I had.
+                  </p>
+                </div>
+              </div>
+              <div class="case-split">
+                <h3 class="case-subheading">To conclude</h3>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    If I had more time to work on CO&middot;LAB, I would like to start with the branding, so it overall feels more connected from screen to screen.
+                  </p>
+                  <p class="case-body">
+                    I would also want to work on the flows throughout the site, including onboarding, the organization side, and the profile and dashboard. For now this case study is really my MVP, so those are the pieces I would keep building out next.
+                  </p>
+                </div>
+              </div>
+              <img
+                class="case-image"
+                src="images/screens2-colab.png"
+                alt="CO&middot;LAB additional UI screens and mockups."
+              >
+            </section>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <section class="footer-content">
+          <div class="footer-top">
+            <div class="footer-intro">
+              <p class="footer-headline">Thanks for checking out my little corner of the internet.</p>
+            </div>
+            <div class="footer-links">
+              <a href="https://www.linkedin.com/in/hannah-gagnon" target="_blank" rel="noreferrer">LinkedIn</a>
+              <span aria-hidden="true">&middot;</span>
+              <a href="https://www.instagram.com/hannahdsgns/" target="_blank" rel="noreferrer">Instagram</a>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p class="footer-meta">2026 &copy; Hannah Gagnon</p>
+            <p class="footer-meta">MADE WITH <span aria-hidden="true">&#9829;</span> BY HANNAH</p>
+          </div>
+        </section>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

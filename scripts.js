@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupHeroPhraseRotate();
   setupDreamHeroVideo();
   setupAboutPhotoStack();
-  setupCaseStudyCardCursor();
+  setupCustomCursor();
 });
 
 function setupNavToggle() {
@@ -282,6 +282,77 @@ function setupCaseStudyScrollSpy() {
   sections.forEach(({ section }) => observer.observe(section));
 }
 
+/** Small circular cursor; flips to white over dark UI / dark text (not “invert cursor” blend—just a contrasting dot). */
+function setupCustomCursor() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (window.matchMedia("(pointer: coarse)").matches) return;
+
+  const dot = document.createElement("div");
+  dot.className = "custom-cursor-dot";
+  dot.setAttribute("aria-hidden", "true");
+  document.body.appendChild(dot);
+  document.body.classList.add("has-custom-cursor");
+
+  function parseRgba(str) {
+    const m = str.match(/rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)(?:\s*,\s*([\d.]+))?\s*\)/);
+    if (!m) return null;
+    const a = m[4] !== undefined ? +m[4] : 1;
+    return { r: +m[1], g: +m[2], b: +m[3], a };
+  }
+
+  function luminance(r, g, b) {
+    const chan = (v) => {
+      v /= 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    };
+    const R = chan(r);
+    const G = chan(g);
+    const B = chan(b);
+    return 0.2126 * R + 0.7152 * G + 0.0722 * B;
+  }
+
+  /** Only true when the pointer is over a noticeably dark *background* (not dark text on white). */
+  function isDarkContext(el) {
+    if (!el || el === document.documentElement || el === document.body) return false;
+    if (el.classList?.contains("custom-cursor-dot")) return false;
+    if (el.closest(".project-card")) return false;
+
+    let node = el;
+    for (let d = 0; d < 10 && node && node !== document.documentElement; d++) {
+      const bgStr = getComputedStyle(node).backgroundColor;
+      const bg = parseRgba(bgStr);
+      if (bg && bg.a > 0.35 && luminance(bg.r, bg.g, bg.b) < 0.45) return true;
+      node = node.parentElement;
+    }
+    return false;
+  }
+
+  let mx = 0;
+  let my = 0;
+  let raf = 0;
+
+  const DOT_R = 7;
+
+  function tick() {
+    raf = 0;
+    dot.style.transform = `translate3d(${mx - DOT_R}px, ${my - DOT_R}px, 0)`;
+    const el = document.elementFromPoint(mx, my);
+    dot.classList.toggle("custom-cursor-dot--light", el ? isDarkContext(el) : false);
+  }
+
+  window.addEventListener(
+    "mousemove",
+    (e) => {
+      mx = e.clientX;
+      my = e.clientY;
+      dot.classList.remove("custom-cursor-dot--hidden");
+      if (!raf) raf = requestAnimationFrame(tick);
+    },
+    { passive: true }
+  );
+
+}
+
 function setupDreamHeroVideo() {
   const video = document.getElementById("dream-hero-video");
   if (!video) return;
@@ -303,25 +374,3 @@ function setupDreamHeroVideo() {
   });
 }
 
-function setupCaseStudyCardCursor() {
-  const cursorEl = document.querySelector(".cursor-hover-effect");
-  if (!cursorEl) return;
-  const cards = document.querySelectorAll(".project-card");
-  if (!cards.length) return;
-
-  function handleMove(event) {
-    cursorEl.style.left = event.clientX + "px";
-    cursorEl.style.top = event.clientY + "px";
-  }
-
-  document.addEventListener("mousemove", handleMove);
-
-  cards.forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      cursorEl.classList.add("visible");
-    });
-    card.addEventListener("mouseleave", () => {
-      cursorEl.classList.remove("visible");
-    });
-  });
-}

@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="images/icon2.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="scripts.js" defer></script>
 </head>
@@ -21,19 +21,13 @@
               <span class="site-logo-primary">Hannah</span>
               <span class="site-logo-secondary">Gagnon</span>
             </span>
-            <span class="site-logo-icons" aria-hidden="true">
-              <img class="site-logo-icon" src="images/icon1.png" alt="">
-              <img class="site-logo-icon" src="images/icon2.png" alt="">
-              <img class="site-logo-icon" src="images/icon3.png" alt="">
-            </span>
           </a>
           <div id="site-nav-panel" class="site-nav-panel">
             <nav class="site-nav" aria-label="Main navigation">
-              <a class="nav-link" href="work.html">Work</a>
               <a class="nav-link" href="about.html">About</a>
               <a class="nav-link" href="misc.html">Misc.</a>
             </nav>
-            <a class="nav-link site-nav-contact" href="contact.html">Contact</a>
+            <a class="nav-link site-nav-contact nav-link--external" href="contact.html">Contact<span class="nav-external-mark" aria-hidden="true">&#8599;</span></a>
             <div class="nav-overlay-icons" aria-hidden="true">
               <img src="images/icon1.png" alt="">
               <img src="images/icon2.png" alt="">
@@ -64,12 +58,13 @@
     <main class="site-main">
       <div class="container">
         <div class="case-layout">
+          <a class="case-back-link case-back-link--mobile-only" href="index.html#work">← Back</a>
           <aside class="case-sidebar">
-            <a class="case-back-link" href="work.html">← Back</a>
+            <a class="case-back-link" href="index.html#work">← Back</a>
             <nav class="case-sidebar-nav" aria-label="Case study sections">
               <ul>
                 <li><a href="#project-details" class="is-active">Project Details</a></li>
-                <li><a href="#project-overview">Project Overview</a></li>
+                <li><a href="#project-overview">Overview</a></li>
                 <li><a href="#challenge-01">Challenge 01</a></li>
                 <li><a href="#challenge-02">Challenge 02</a></li>
                 <li><a href="#challenge-03">Challenge 03</a></li>
@@ -136,17 +131,27 @@
             </section>
 
             <section id="project-overview" class="case-section" data-scroll-section>
-              <h2 class="case-section-heading">Project Overview</h2>
-              <p class="case-body">
-                Dream Creatives offers AI-powered virtual photo booths that turn traditional photo ops into immersive, branded experiences. During FLUI Design Jam 2026, our team was assigned to redesign their homepage and user flow. <strong><span class="case-underline">The brief was simple: be clear, build credibility, and earn trust.</span></strong>
-              </p>
+              <div class="case-split case-split--section-lead">
+                <h2 class="case-subheading">Overview</h2>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    Dream Creatives offers AI-powered virtual photo booths that turn traditional photo ops into immersive, branded experiences. During FLUI Design Jam 2026, our team was assigned to redesign their homepage and user flow. <strong><span class="case-underline">The brief was simple: be clear, build credibility, and earn trust.</span></strong>
+                  </p>
+                </div>
+              </div>
 
-              <h3 class="case-subheading">The Problem</h3>
-              <p class="case-body">
-                Dream Creatives&rsquo; existing site was built for a kiosk, not the web. On desktop, visitors had no clear understanding of what the product was, whether it was legitimate, or what to do next. We needed to redesign the experience so new users could quickly understand, trust, and move forward.
-              </p>
+              <div class="case-split">
+                <h3 class="case-subheading">The Problem</h3>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    Dream Creatives&rsquo; existing site was built for a kiosk, not the web. On desktop, visitors had no clear understanding of what the product was, whether it was legitimate, or what to do next. We needed to redesign the experience so new users could quickly understand, trust, and move forward.
+                  </p>
+                </div>
+              </div>
 
-              <h3 class="case-subheading">Our Approach</h3>
+              <div class="case-split">
+                <h3 class="case-subheading">Our Approach</h3>
+                <div class="case-split-body">
               <p class="case-body">
                 We started by auditing the existing site as first-time visitors, not designers. Within minutes we were lost, and that was the insight we needed. From there we mapped the broken flow before touching Figma, because solving the wrong problem faster isn&rsquo;t progress.
               </p>
@@ -157,17 +162,6 @@
                   alt="Dream Creatives homepage audit"
                 >
                 <p class="case-image-caption">Initial audit of the existing kiosk-built experience</p>
-                <video
-                  class="case-video"
-                src="videos/DreamCreatives-Userflow-wireframes_1.mp4"
-                  preload="none"
-                  autoplay
-                  muted
-                  loop
-                  playsinline
-                  aria-label="Dream Creatives user flow and wireframes"
-                ></video>
-                <p class="case-image-caption">Early flow mapping, sketches, low-fidelity wireframes, and mid-fidelity wireframes identifying</p>
                 <div class="case-approach-cards">
                   <div class="case-approach-card">
                     <p class="case-approach-card-title">Methods</p>
@@ -183,24 +177,26 @@
                   </div>
                 </div>
               </div>
-              <p class="case-body">
-                Before we jumped into solutions, we spent time understanding where the experience was actually breaking: where visitors lost context, hesitated around trust, or didn&rsquo;t know what to do next.
-              </p>
-              <p class="case-body">
-                That work led us to frame the rest of the project around three focus areas: clarity, credibility, and community, which shaped the homepage, disclaimer, pricing, and gallery flows you&rsquo;ll see in the challenges below.
-              </p>
+                </div>
+              </div>
             </section>
 
             <section id="challenge-01" class="case-section" data-scroll-section>
               <p class="case-challenge-label">Challenge 01</p>
               <h2 class="case-challenge-title">Clarify the Product Experience</h2>
 
-              <h3 class="case-subheading">The Challenge</h3>
-              <p class="case-challenge-meta">
-                The homepage was built for a kiosk. On desktop, visitors landed with no context, no clear hierarchy, and no obvious next step. We needed to reframe it as a landing page that could welcome both first-timers and returning clients.
-              </p>
+              <div class="case-split">
+                <h3 class="case-subheading">The Challenge</h3>
+                <div class="case-split-body">
+                  <p class="case-challenge-meta">
+                    The homepage was built for a kiosk. On desktop, visitors landed with no context, no clear hierarchy, and no obvious next step. We needed to reframe it as a landing page that could welcome both first-timers and returning clients.
+                  </p>
+                </div>
+              </div>
 
-              <h3 class="case-subheading">The Why Behind the What</h3>
+              <div class="case-split">
+                <h3 class="case-subheading">What we did</h3>
+                <div class="case-split-body">
               <p class="case-body">
                 We redesigned the homepage with a scrollable layout, clear navigation, and a flow that naturally moves visitors from &ldquo;what is this?&rdquo; to &ldquo;I want to try it.&rdquo;
               </p>
@@ -222,20 +218,28 @@
                 >
                 <p class="case-image-caption">Homepage redesign with scrollable layout and new design system</p>
               </div>
+                </div>
+              </div>
             </section>
 
             <section id="challenge-02" class="case-section" data-scroll-section>
               <p class="case-challenge-label">Challenge 02</p>
               <h2 class="case-challenge-title">Build Trust &amp; Credibility</h2>
 
-              <h3 class="case-subheading">The Challenge</h3>
-              <p class="case-challenge-meta">
-                AI-generated photos of real people raise real questions about privacy and data use. Because of that, trust is non-negotiable. Without it, visitors hesitate and don&rsquo;t take the next step.
-              </p>
+              <div class="case-split">
+                <h3 class="case-subheading">The Challenge</h3>
+                <div class="case-split-body">
+                  <p class="case-challenge-meta">
+                    AI-generated photos of real people raise real questions about privacy and data use. Because of that, trust is non-negotiable. Without it, visitors hesitate and don&rsquo;t take the next step.
+                  </p>
+                </div>
+              </div>
 
-              <h3 class="case-subheading">The Why Behind the What</h3>
+              <div class="case-split">
+                <h3 class="case-subheading">What we did</h3>
+                <div class="case-split-body">
               <p class="case-body">
-                We added a dedicated disclaimer page so visitors understand exactly how their photos are used and protected. We introduced a trust bar and testimonials to reinforce real-world credibility. We also built out a pricing page with an FAQ so there are no surprises. We could have stopped at testimonials, but that wouldn&rsquo;t have addressed the real hesitation. So we went upstream and made the data policy impossible to miss.
+                We added a disclaimer page so visitors understand exactly how their photos are used and protected, then introduced a trust bar and testimonials to help with credibility. We also built out a pricing page with an FAQ so there are no surprises.
               </p>
               <div class="case-media-stack">
                 <img
@@ -256,20 +260,28 @@
                 ></video>
                 <p class="case-image-caption">Pricing and FAQ page: removing uncertainty before it became a reason to leave</p>
               </div>
+                </div>
+              </div>
             </section>
 
             <section id="challenge-03" class="case-section" data-scroll-section>
               <p class="case-challenge-label">Challenge 03</p>
               <h2 class="case-challenge-title">Build a Community</h2>
 
-              <h3 class="case-subheading">The Challenge</h3>
-              <p class="case-challenge-meta">
-                People want to share their photos. The old site had no way to do that. We needed a community layer so Dream Creatives felt like somewhere to belong, not just a one-off service.
-              </p>
+              <div class="case-split">
+                <h3 class="case-subheading">The Challenge</h3>
+                <div class="case-split-body">
+                  <p class="case-challenge-meta">
+                    People want to share their photos. The old site had no way to do that. We needed a community layer so Dream Creatives felt like somewhere to belong, not just a one-off service.
+                  </p>
+                </div>
+              </div>
 
-              <h3 class="case-subheading">The Why Behind the What</h3>
+              <div class="case-split">
+                <h3 class="case-subheading">What we did</h3>
+                <div class="case-split-body">
               <p class="case-body">
-                The easy answer was a social media feed embed. We pushed for a native gallery instead because we wanted the community to live inside the product, not point away from it. We revamped the public photo gallery so visitors can share and browse publicly, and added new CTAs and social proof touchpoints on the homepage to surface the community more prominently.
+                We revamped the public photo gallery so visitors can share and browse publicly, and added new CTAs and social proof touchpoints on the homepage to surface the community more prominently.
               </p>
               <div class="case-media-stack">
                 <img
@@ -289,6 +301,8 @@
                 ></video>
                 <p class="case-image-caption">Revamped community gallery: keeping sharing inside the product, not pointing away from it</p>
               </div>
+                </div>
+              </div>
             </section>
 
             <section id="final-thoughts" class="case-section" data-scroll-section>
@@ -301,18 +315,17 @@
                 >
                 <p class="case-image-caption"></p>
               </div>
-              <p class="case-body">
-                A 3 day design jam forces clarity. We were designing for a product we&rsquo;d never used, for users we couldn&rsquo;t interview, so we started by mapping what was actually broken rather than jumping to solutions.
-              </p>
-              <p class="case-body">
-                On the whole, the experience was exhausting but rewarding. I took on the project manager role and got to work with a team I didn&rsquo;t know going in. Figuring out how we communicated, what we each needed, and how to keep things moving in a short window was a big part of the challenge. Collaborating with an unfamiliar group under that kind of time pressure was intense, but it was also a lot of fun. I&rsquo;m really proud of my teammates and the work we created.
-              </p>
-              <p class="case-body">
-                If I came back to the project, I&rsquo;d push further on the community layer. We built solid groundwork, but with more time I&rsquo;d want to explore what the experience feels like for a returning user and how the gallery and sharing flows could feel more woven into the product.
-              </p>
-              <p class="case-body case-video-cta">
-                If you&rsquo;d like to hear more about the project and the experience, I&rsquo;d love for you to reach out. You can also watch our video submission <a href="https://youtu.be/wTtOOO-O_3g" target="_blank" rel="noopener noreferrer">here</a>, and if you&rsquo;d like to see what FLUI is, here&rsquo;s the link to their <a href="https://www.linkedin.com/company/fluidesignjam/posts/?feedView=all" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
-              </p>
+              <div class="case-split case-split--final-thoughts">
+                <h2 class="case-subheading">Thoughts</h2>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    On the whole, the experience was exhausting but rewarding. I took on the project manager role and got to work with a team I didn&rsquo;t know well going in. Figuring out how we communicated, what we each needed, and how to keep things moving in a short window was a big part of the challenge. Collaborating with an unfamiliar group under that kind of time pressure was intense, but it was also a lot of fun. I&rsquo;m really proud of my teammates and the work we created!
+                  </p>
+                  <p class="case-body case-video-cta">
+                    If you&rsquo;d like to hear more about the project and the experience, I&rsquo;d love for you to reach out. You can also watch our video submission <a href="https://youtu.be/wTtOOO-O_3g" target="_blank" rel="noopener noreferrer">here</a>, and if you&rsquo;d like to see what FLUI is, here&rsquo;s the link to their <a href="https://www.linkedin.com/company/fluidesignjam/posts/?feedView=all" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+                  </p>
+                </div>
+              </div>
             </section>
           </article>
         </div>
@@ -324,8 +337,7 @@
         <section class="footer-content">
           <div class="footer-top">
             <div class="footer-intro">
-              <p class="footer-kicker">THANKS FOR CHECKING OUT MY LITTLE CORNER OF THE INTERNET</p>
-              <p class="footer-headline">I'm looking forward to connecting with you!</p>
+              <p class="footer-headline">Thanks for checking out my little corner of the internet.</p>
             </div>
             <div class="footer-links">
               <a href="https://www.linkedin.com/in/hannah-gagnon" target="_blank" rel="noreferrer">LinkedIn</a>

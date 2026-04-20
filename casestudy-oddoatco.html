@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="images/icon2.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="scripts.js" defer></script>
 </head>
@@ -21,19 +21,13 @@
               <span class="site-logo-primary">Hannah</span>
               <span class="site-logo-secondary">Gagnon</span>
             </span>
-            <span class="site-logo-icons" aria-hidden="true">
-              <img class="site-logo-icon" src="images/icon1.png" alt="">
-              <img class="site-logo-icon" src="images/icon2.png" alt="">
-              <img class="site-logo-icon" src="images/icon3.png" alt="">
-            </span>
           </a>
           <div id="site-nav-panel" class="site-nav-panel">
             <nav class="site-nav" aria-label="Main navigation">
-              <a class="nav-link" href="work.html">Work</a>
               <a class="nav-link" href="about.html">About</a>
               <a class="nav-link" href="misc.html">Misc.</a>
             </nav>
-            <a class="nav-link site-nav-contact" href="contact.html">Contact</a>
+            <a class="nav-link site-nav-contact nav-link--external" href="contact.html">Contact<span class="nav-external-mark" aria-hidden="true">&#8599;</span></a>
             <div class="nav-overlay-icons" aria-hidden="true">
               <img src="images/icon1.png" alt="">
               <img src="images/icon2.png" alt="">
@@ -64,12 +58,13 @@
     <main class="site-main">
       <div class="container">
         <div class="case-layout">
+          <a class="case-back-link case-back-link--mobile-only" href="index.html#work">← Back</a>
           <aside class="case-sidebar">
-            <a class="case-back-link" href="work.html">← Back</a>
+            <a class="case-back-link" href="index.html#work">← Back</a>
             <nav class="case-sidebar-nav" aria-label="Case study sections">
               <ul>
                 <li><a href="#project-details" class="is-active">Project Details</a></li>
-                <li><a href="#project-overview">Project Overview</a></li>
+                <li><a href="#project-overview">Overview</a></li>
                 <li><a href="#making-of">The Making of Odd Oat Co.</a></li>
                 <li><a href="#visual-identity">Visual Identity</a></li>
                 <li><a href="#final-thoughts">Final Thoughts</a></li>
@@ -114,15 +109,23 @@
             </section>
 
             <section id="project-overview" class="case-section" data-scroll-section>
-              <h2 class="case-section-heading">Project Overview</h2>
-              <p class="case-body">
-                Odd Oat Co. is an Earth friendly oat milk brand, which focuses on sustainability, convenience, and unique flavours.
-              </p>
+              <div class="case-split case-split--section-lead">
+                <h2 class="case-subheading">Overview</h2>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    Odd Oat Co. is an Earth friendly oat milk brand, which focuses on sustainability, convenience, and unique flavours.
+                  </p>
+                </div>
+              </div>
 
-              <h3 class="case-subheading">Why make an oat milk brand?</h3>
-              <p class="case-body">
-                I like oat milk, and wanted to try experimenting with something new and fun for my branding class. I focused on using friendly language and eye-catching colours.
-              </p>
+              <div class="case-split">
+                <h3 class="case-subheading">Why make an oat milk brand?</h3>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    I like oat milk, and wanted to try experimenting with something new and fun for my branding class. I focused on using friendly language and eye-catching colours.
+                  </p>
+                </div>
+              </div>
             </section>
 
             <section id="making-of" class="case-section" data-scroll-section>
@@ -133,7 +136,9 @@
               <p class="case-body">
                 It was really rewarding, though, to see all that time turn into something I&rsquo;m proud of. It might not be the prettiest, but it was my first full branding project and I&rsquo;m happy with how it turned out.
               </p>
-              <h3 class="case-subheading">The Ugly</h3>
+              <div class="case-split">
+                <h3 class="case-subheading">The Ugly</h3>
+                <div class="case-split-body">
               <div class="case-media-stack">
                 <img
                   class="case-image"
@@ -155,6 +160,8 @@
                   src="images/odd-oat-cap-carton-labels.png"
                   alt="Cap carton labels design board: Odd Oat Co. carton mockups for left, front, and right views across Banana Bread, Maple Brown Sugar, Vanilla Strawberry, and Blueberry Muffin flavours."
                 >
+              </div>
+                </div>
               </div>
             </section>
 
@@ -224,8 +231,7 @@
         <section class="footer-content">
           <div class="footer-top">
             <div class="footer-intro">
-              <p class="footer-kicker">THANKS FOR CHECKING OUT MY LITTLE CORNER OF THE INTERNET</p>
-              <p class="footer-headline">I'm looking forward to connecting with you!</p>
+              <p class="footer-headline">Thanks for checking out my little corner of the internet.</p>
             </div>
             <div class="footer-links">
               <a href="https://www.linkedin.com/in/hannah-gagnon" target="_blank" rel="noreferrer">LinkedIn</a>
