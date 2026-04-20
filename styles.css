@@ -1017,15 +1017,21 @@ section.hero--home + .work-grid-section {
   padding-block: 8px 64px;
 }
 
-/* Flowing gallery: column count grows with width; extra row gap reads as space “below” each row */
+/* Misc gallery: 3 across on larger screens, single column on phones */
 .misc-spotlight-flow {
   --misc-flow-gap-x: clamp(14px, 3.5vw, 28px);
   --misc-flow-gap-y: clamp(24px, 5vw, 48px);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: var(--misc-flow-gap-x);
   row-gap: var(--misc-flow-gap-y);
   align-items: start;
+}
+
+@media (max-width: 640px) {
+  .misc-spotlight-flow {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* No frame—just aspect ratio. Landscape 4:3, portrait 3:4; cover fills the slice (edges may crop). */
