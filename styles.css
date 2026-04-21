@@ -495,7 +495,8 @@ a:hover {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -52%);
+  /* Inter’s * sits high in the em box; nudge down slightly for optical center in the circle */
+  transform: translate(-50%, calc(-50% + 0.11em));
   font-family: var(--font-sans);
   font-size: clamp(1.45rem, 4.8vw, 1.78rem);
   font-weight: 500;
