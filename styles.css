@@ -449,8 +449,6 @@ a:hover {
   --hero-name-stagger: calc(var(--hero-intro-edge) - var(--hero-gagnon-word-width) - var(--hero-gagnon-pull-left));
   /* Intro only: nudge body copy right without changing Gagnon / title alignment */
   --hero-intro-body-extra: clamp(0.5rem, 1.25vw, 1.1rem);
-  /* Phone: set in720px query so “Gagnon” can sit right of “Hannah” when stagger calc is ~0 */
-  --hero-mobile-gagnon-nudge: 0px;
 }
 
 .hero-meta {
@@ -588,7 +586,7 @@ a:hover {
   .hero--home .hero-top-cluster {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem;
+    gap: clamp(1.75rem, 5vw, 2.75rem);
   }
 
   .hero--home .hero-top-cluster .hero-heading {
@@ -619,10 +617,6 @@ a:hover {
     padding-block: 88px 24px;
   }
 
-  .hero--home .hero-home-main {
-    --hero-mobile-gagnon-nudge: clamp(1.5rem, 12vw, 3.75rem);
-  }
-
   .hero-home-layout {
     grid-template-columns: 1fr;
     align-items: stretch;
@@ -636,16 +630,24 @@ a:hover {
 
   .hero--home .hero-top-cluster {
     align-items: flex-start;
+    gap: clamp(2.25rem, 8vw, 3.75rem);
   }
 
   .hero--home .hero-top-cluster .hero-heading {
-    align-items: flex-start;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .hero--home .hero-name-first {
+    align-self: flex-start;
     text-align: left;
   }
 
-  /* Hannah flush left; Gagnon shifted right (never left of flush) */
+  /* Full width: Hannah left, Gagnon right, still stepped on its own line */
   .hero--home .hero-name-last {
-    margin-left: max(0px, var(--hero-name-stagger), var(--hero-mobile-gagnon-nudge));
+    align-self: flex-end;
+    text-align: right;
+    margin-left: 0;
   }
 
   .hero--home .hero-meta {
@@ -660,7 +662,7 @@ a:hover {
   }
 
   .hero--home .hero-intro {
-    margin-top: clamp(2rem, 6vw, 3rem);
+    margin-top: clamp(3rem, 11vw, 4.75rem);
     margin-left: var(--hero-intro-body-extra);
     max-width: 36rem;
     text-align: left;
