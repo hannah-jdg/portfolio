@@ -503,6 +503,11 @@ a:hover {
   pointer-events: none;
 }
 
+/* Prefer text/symbol glyphs over color emoji (iOS often emoji-presents ♥, ✳, etc.) */
+.text-symbol {
+  font-variant-emoji: text;
+}
+
 @keyframes hero-badge-spin {
   to {
     transform: rotate(360deg);
