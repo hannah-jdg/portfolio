@@ -792,17 +792,7 @@ section.hero--home + .work-grid-section {
   transition: filter 0.22s ease;
 }
 
-.project-card-visual-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse 72% 62% at 50% 48%,
-    rgba(255, 255, 255, 0.14) 0%,
-    transparent 62%
-  );
-}
+/* Remove the highlight overlay "glow" but keep hover blur. */
 
 .project-card:hover .project-card-visual-media {
   filter: blur(5px);
@@ -890,12 +880,7 @@ section.hero--home + .work-grid-section {
 
 .project-thumb-oat {
   background-color: #e8e2d6;
-  background-image: radial-gradient(
-      ellipse 75% 65% at 50% 50%,
-      rgba(220, 185, 95, 0.28) 0%,
-      transparent 58%
-    ),
-    url("images/oddoat-cover.png");
+  background-image: url("images/oddoat-cover.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -903,12 +888,15 @@ section.hero--home + .work-grid-section {
 
 .project-thumb-dream {
   background-color: var(--color-text);
-  background-image: radial-gradient(
-      ellipse 78% 68% at 50% 46%,
-      rgba(65, 130, 98, 0.38) 0%,
-      transparent 58%
-    ),
-    url("images/dreamcreatives-cardimage.jpg");
+  background-image: url("images/dreamcreatives-cardimage.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.project-thumb-pht {
+  background-color: #f1ecff;
+  background-image: url("images/pht-cover5.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1647,6 +1635,18 @@ section.hero--home + .work-grid-section {
   padding-top: clamp(24px, 5vw, 48px);
 }
 
+.case-content {
+  /* Spacing tokens: adjust once, affects all case studies */
+  /* 8pt scale (4/8/16/24/32/40/48/56/64/...) */
+  --case-space-1: 8px;
+  --case-space-2: 16px;
+  --case-space-3: 24px;
+  --case-space-4: 32px;
+  --case-space-5: 48px;
+  --case-space-6: 64px;
+  --case-space-7: 80px;
+}
+
 .case-sidebar {
   position: sticky;
   top: 96px;
@@ -1720,7 +1720,7 @@ section.hero--home + .work-grid-section {
 }
 
 .case-header {
-  margin: 0 0 36px;
+  margin: 0 0 var(--case-space-4);
   padding: 0;
 }
 
@@ -1744,7 +1744,7 @@ section.hero--home + .work-grid-section {
   aspect-ratio: 16 / 9;
   background-color: #dedede;
   border: 1px solid var(--color-border-subtle);
-  margin-block: 32px 44px;
+  margin-block: var(--case-space-4) var(--case-space-5);
 }
 
 .case-hero-image-oat {
@@ -1760,14 +1760,26 @@ section.hero--home + .work-grid-section {
   border-radius: 0;
   border: 1px solid var(--color-border-subtle);
   display: block;
-  margin-block: 28px 0;
+  margin-block: var(--case-space-4) 0;
+}
+
+.case-image--banner {
+  height: clamp(220px, 30vw, 340px);
+  object-fit: cover;
+  object-position: center;
+}
+
+.case-image--tall {
+  height: clamp(320px, 48vw, 520px);
+  object-fit: cover;
+  object-position: center;
 }
 
 .case-video {
   width: 100%;
   max-width: none;
   display: block;
-  margin-top: 28px;
+  margin-top: var(--case-space-4);
   border-radius: 0;
   border: 1px solid var(--color-border-subtle);
   background: #fff;
@@ -1781,8 +1793,8 @@ section.hero--home + .work-grid-section {
 .case-image-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  margin-top: 28px;
+  gap: var(--case-space-3);
+  margin-top: var(--case-space-4);
   width: 100%;
   max-width: none;
 }
@@ -1792,18 +1804,18 @@ section.hero--home + .work-grid-section {
 }
 
 .case-section {
-  margin-block: 60px 0;
+  margin-block: var(--case-space-6) 0;
 }
 
 /* Horizontal rule between major case sections (after hero / details) */
 .case-content > .case-section ~ .case-section {
   border-top: 1px solid var(--color-border-subtle);
-  padding-top: 44px;
+  padding-top: var(--case-space-5);
 }
 
 .case-update {
-  margin: 40px 0 52px;
-  padding: 16px 20px;
+  margin: 40px 0 56px;
+  padding: 16px 24px;
   border-radius: 6px;
   border: 1px solid var(--color-border-subtle);
   background-color: #f5f5f5;
@@ -1857,7 +1869,7 @@ section.hero--home + .work-grid-section {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 40px;
   border-top: 1px solid var(--color-border-subtle);
-  padding-top: 36px;
+  padding-top: 32px;
 }
 
 .case-details-grid--3 {
@@ -1883,9 +1895,17 @@ section.hero--home + .work-grid-section {
 }
 
 .case-body {
-  margin: 0 0 32px;
+  margin: 0 0 var(--case-space-3);
   font-size: 1rem;
   color: var(--color-text-body);
+}
+
+/* 8pt rhythm: add more air before media after copy */
+.case-content .case-body + .case-media-stack,
+.case-content .case-body + .case-image-row,
+.case-content .case-body + .case-image,
+.case-content .case-body + .case-video {
+  margin-top: var(--case-space-6);
 }
 
 /* Phase labels: same weight as body, stronger via --color-text vs body grey */
@@ -1899,6 +1919,12 @@ section.hero--home + .work-grid-section {
   line-height: 1.55;
   color: var(--color-text-body);
   font-weight: 400;
+}
+
+.case-body--small {
+  font-size: 0.95rem;
+  color: var(--color-text-body);
+  margin-bottom: var(--case-space-4);
 }
 
 .case-body a,
@@ -1917,7 +1943,7 @@ section.hero--home + .work-grid-section {
 }
 
 .case-subheading {
-  margin: 56px 0 18px;
+  margin: 56px 0 16px;
   font-size: 1.125rem;
   font-weight: 400;
   letter-spacing: 0.14em;
@@ -1963,7 +1989,7 @@ section.hero--home + .work-grid-section {
 }
 
 .case-split-body > .case-media-stack {
-  margin-top: 1.75rem;
+  margin-top: var(--case-space-4);
 }
 
 .case-split-body > .case-media-stack:first-child {
@@ -1972,6 +1998,16 @@ section.hero--home + .work-grid-section {
 
 .case-split + .case-split {
   margin-top: 2.75rem;
+}
+
+/* More breathing room between Process blocks (About PHT → Exploration, etc.) */
+#process .case-split + .case-split {
+  margin-top: var(--case-space-7);
+}
+
+/* More breathing room after the last Process block (Exploration) */
+#process .case-split:last-child {
+  margin-bottom: var(--case-space-6);
 }
 
 /* First block inside #project-overview: no extra top margin */
@@ -2032,16 +2068,29 @@ section.hero--home + .work-grid-section {
 }
 
 .case-media-stack {
-  margin-top: 48px;
+  margin-top: var(--case-space-5);
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: var(--case-space-4);
   width: 100%;
   max-width: none;
 }
 
+.case-header + .case-media-stack {
+  margin-top: 0;
+  gap: var(--case-space-3);
+}
+
+.case-media-stack > .case-image,
+.case-media-stack > .case-video,
+.case-media-stack > .case-image-row {
+  /* Stacks/rows control spacing via gap; avoid double margins */
+  margin-top: 0;
+  margin-block: 0;
+}
+
 .case-media-stack + .case-body {
-  margin-top: 56px;
+  margin-top: var(--case-space-5);
 }
 
 .case-media-stack-final {
@@ -2057,7 +2106,7 @@ section.hero--home + .work-grid-section {
 }
 
 .case-image-caption {
-  margin: 4px 0 0;
+  margin: 8px 0 0;
   font-family: var(--font-sans);
   font-size: 13px;
   color: var(--color-text-muted);
