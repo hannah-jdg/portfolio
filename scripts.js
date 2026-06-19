@@ -1,14 +1,17 @@
 
 // Set current year in footer and initialise small interactions
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const yearTargets = document.querySelectorAll("[data-year]");
   const year = new Date().getFullYear();
   yearTargets.forEach((el) => {
     el.textContent = String(year);
   });
 
+  const lenis = await setupSmoothScroll();
+
   setupNavToggle();
-  setupCaseStudyScrollSpy();
+  setupCaseStudyScrollSpy(lenis);
+  setupScrollReveal();
   setupAboutAccordion();
   setupHeroPhraseRotate();
   setupDreamHeroVideo();
@@ -218,7 +221,7 @@ function setupAboutAccordion() {
   });
 }
 
-function setupCaseStudyScrollSpy() {
+function setupCaseStudyScrollSpy(lenis) {
   const sidebarLinks = document.querySelectorAll(".case-sidebar-nav a[href^='#']");
   if (!sidebarLinks.length || typeof IntersectionObserver === "undefined") {
     return;
@@ -254,8 +257,12 @@ function setupCaseStudyScrollSpy() {
       if (!section || !id) return;
       e.preventDefault();
       setActiveLink(link);
-      ignoreObserverUntil = Date.now() + 500;
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      ignoreObserverUntil = Date.now() + 900;
+      if (lenis) {
+        lenis.scrollTo(section, { offset: -96, duration: 1.1 });
+      } else {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
       history.replaceState(null, "", "#" + id);
     });
   });
@@ -280,6 +287,114 @@ function setupCaseStudyScrollSpy() {
   );
 
   sections.forEach(({ section }) => observer.observe(section));
+}
+
+/** Eased wheel scrolling for a softer, less abrupt page feel. Uses Lenis when available. */
+async function setupSmoothScroll() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return null;
+  }
+
+  try {
+    await loadExternalScript("https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js");
+  } catch {
+    return null;
+  }
+
+  if (typeof Lenis === "undefined") {
+    return null;
+  }
+
+  const lenis = new Lenis({
+    duration: 1.15,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    wheelMultiplier: 0.85,
+    smoothTouch: false,
+    touchMultiplier: 1.2,
+  });
+
+  function onLenisFrame(time) {
+    lenis.raf(time);
+    requestAnimationFrame(onLenisFrame);
+  }
+  requestAnimationFrame(onLenisFrame);
+
+  return lenis;
+}
+
+function loadExternalScript(src) {
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector(`script[src="${src}"]`);
+    if (existing) {
+      if (existing.dataset.loaded === "true") {
+        resolve();
+        return;
+      }
+      existing.addEventListener("load", () => resolve(), { once: true });
+      existing.addEventListener("error", () => reject(new Error(`Failed to load ${src}`)), { once: true });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = src;
+    script.async = true;
+    script.addEventListener("load", () => {
+      script.dataset.loaded = "true";
+      resolve();
+    }, { once: true });
+    script.addEventListener("error", () => reject(new Error(`Failed to load ${src}`)), { once: true });
+    document.head.appendChild(script);
+  });
+}
+
+/** Gentle fade-up as key sections scroll into view. Respects reduced motion. */
+function setupScrollReveal() {
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const selectors = [
+    ".hero-intro",
+    ".project-card",
+    ".case-section",
+    ".about-hero",
+    ".work-page-hero",
+    ".footer-content",
+  ];
+
+  const elements = [];
+  selectors.forEach((selector) => {
+    document.querySelectorAll(selector).forEach((el) => {
+      el.classList.add("scroll-reveal");
+      elements.push(el);
+    });
+  });
+
+  document.querySelectorAll(".project-card").forEach((card, index) => {
+    card.style.setProperty("--reveal-delay", `${index * 0.08}s`);
+  });
+
+  if (!elements.length) return;
+
+  if (reducedMotion || typeof IntersectionObserver === "undefined") {
+    elements.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      root: null,
+      rootMargin: "0px 0px -10% 0px",
+      threshold: 0.08,
+    }
+  );
+
+  elements.forEach((el) => observer.observe(el));
 }
 
 /** Small circular cursor; flips to white over dark UI / dark text (not “invert cursor” blend—just a contrasting dot). */
