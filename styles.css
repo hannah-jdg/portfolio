@@ -1603,6 +1603,21 @@ section.hero--home + .work-grid-section {
   color: var(--color-text-muted);
 }
 
+.footer-updated {
+  display: inline-block;
+  margin: 24px 0 0;
+  padding: 5px 11px;
+  border: 1px solid #d0d0d0;
+  border-radius: 999px;
+  background-color: transparent;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
 .footer-links {
   display: flex;
   align-items: center;
