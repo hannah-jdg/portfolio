@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hannah Gagnon - TRIUMF</title>
+  <link rel="icon" type="image/png" href="images/icon2.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container">
+        <div class="site-header-inner">
+          <a class="site-logo" href="index.html">
+            <span class="site-logo-text">
+              <span class="site-logo-primary">Hannah</span>
+              <span class="site-logo-secondary">Gagnon</span>
+            </span>
+          </a>
+          <div id="site-nav-panel" class="site-nav-panel">
+            <nav class="site-nav" aria-label="Main navigation">
+              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="about.html">About</a>
+            </nav>
+            <div class="nav-overlay-icons" aria-hidden="true">
+              <img src="images/icon1.png" alt="">
+              <img src="images/icon2.png" alt="">
+              <img src="images/icon3.png" alt="">
+            </div>
+          </div>
+          <button type="button" class="nav-overlay-close nav-overlay-close--in-panel" aria-label="Close menu">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </button>
+          <div class="nav-toggle-wrap">
+            <button type="button" class="nav-overlay-close" aria-label="Close menu">
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+            </button>
+            <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav-panel">
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+              <span class="nav-toggle-bar"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <div class="container">
+        <div class="case-layout">
+          <a class="case-back-link case-back-link--mobile-only" href="index.html">&larr; Back</a>
+          <aside class="case-sidebar">
+            <a class="case-back-link" href="index.html">&larr; Back</a>
+            <nav class="case-sidebar-nav" aria-label="Case study sections">
+              <ul>
+                <li><a href="#project-details" class="is-active">Project Details</a></li>
+                <li><a href="#project-overview">Overview</a></li>
+                <li><a href="#the-problem">The Problem</a></li>
+                <li><a href="#the-goal">The Goal</a></li>
+              </ul>
+            </nav>
+          </aside>
+
+          <article class="case-content">
+            <header class="case-header">
+              <p class="case-eyebrow">UX/UI design &middot; Practicum placement &middot; Interactive</p>
+              <h1 class="case-title">TRIUMF - Communicating impact to funders and the public</h1>
+            </header>
+
+            <div class="case-image-placeholder" aria-hidden="true"></div>
+
+            <section id="project-details" class="case-section" data-scroll-section>
+              <h2 class="case-section-heading visually-hidden">Project Details</h2>
+              <div class="case-details-grid case-details-grid--3">
+                <div class="case-detail-group">
+                  <p class="case-detail-label">Timeline</p>
+                  <p class="case-detail-body">
+                    February - April 2026
+                  </p>
+                </div>
+                <div class="case-detail-group">
+                  <p class="case-detail-label">What I did</p>
+                  <p class="case-detail-body">
+                    Research<br>
+                    Stakeholder Interviews<br>
+                    Wireframing &amp; Prototyping
+                  </p>
+                </div>
+                <div class="case-detail-group">
+                  <p class="case-detail-label">Tools Used</p>
+                  <p class="case-detail-body">
+                    Figma &amp; Figjam<br>
+                    Claude<br>
+                    Miro
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="project-overview" class="case-section" data-scroll-section>
+              <div class="case-split case-split--section-lead">
+                <h2 class="case-subheading">Overview</h2>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    For my practicum placement, the Communications team at TRIUMF assigned me the task to redesign their impact page on the TRIUMF website.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="the-problem" class="case-section" data-scroll-section>
+              <div class="case-split case-split--section-lead">
+                <h2 class="case-subheading">The Problem</h2>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    The previous impact page was originally just a list of KPI&rsquo;s and scientific achievements that had been copied in when the entire website was redesigned. However the list did not communicate the full extent of TRIUMF&rsquo;s impact and all the other areas in which TRIUMF has made a difference.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="the-goal" class="case-section" data-scroll-section>
+              <div class="case-split case-split--section-lead">
+                <h2 class="case-subheading">The Goal</h2>
+                <div class="case-split-body">
+                  <p class="case-body">
+                    We wanted the page to do a few key things:
+                  </p>
+                  <div class="case-approach-cards case-approach-cards--stack">
+                    <div class="case-approach-card">
+                      <p class="case-approach-card-body">
+                        Communicate to both funders and the public why they should care about what TRIUMF is doing.
+                      </p>
+                    </div>
+                    <div class="case-approach-card">
+                      <p class="case-approach-card-body">
+                        Have the achievements be more accessible and legible for non-scientists to help everyone&rsquo;s understanding.
+                      </p>
+                    </div>
+                    <div class="case-approach-card">
+                      <p class="case-approach-card-body">
+                        Tell a story. Add some colour. Create something new and different for the website.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+        </div>
+        <nav class="case-pager" aria-label="Adjacent projects">
+          <a class="case-pager-link case-pager-link--prev" href="casestudy-pht.html">
+            <span aria-hidden="true">&larr;</span> Previous Project
+          </a>
+          <a class="case-pager-link case-pager-link--next" href="casestudy-colab.html">
+            Next Project <span aria-hidden="true">&rarr;</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <section class="footer-content">
+          <div class="footer-top">
+            <div class="footer-intro">
+              <p class="footer-headline"><span class="text-symbol">*</span> an interdisciplinary product &amp; experience designer with a background in technology management.</p>
+              <p class="footer-updated">LAST UPDATED: Summer 2026</p>
+            </div>
+            <div class="footer-links">
+              <a href="https://www.linkedin.com/in/hannah-gagnon" target="_blank" rel="noreferrer">LinkedIn</a>
+              <span aria-hidden="true">·</span>
+              <a href="https://www.instagram.com/hannahdsgns/" target="_blank" rel="noreferrer">Instagram</a>
+              <span aria-hidden="true">·</span>
+              <a href="https://drive.google.com/file/d/1KCK21QsOTNV0Spug_Ry0gA2059eIi4YT/view?usp=sharing" target="_blank" rel="noreferrer">Resume</a>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p class="footer-meta">2026 &copy; Hannah Gagnon</p>
+            <p class="footer-meta">MADE WITH <span class="text-symbol" aria-hidden="true">&#x2665;&#xFE0E;</span> BY HANNAH</p>
+          </div>
+        </section>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

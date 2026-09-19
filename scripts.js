@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const lenis = await setupSmoothScroll();
 
   setupNavToggle();
+  setupAutoHideNav(lenis);
+  setupCasePager(lenis);
   setupCaseStudyScrollSpy(lenis);
   setupScrollReveal();
   setupAboutAccordion();
@@ -65,6 +67,76 @@ function setupNavToggle() {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && isOpen()) close();
   });
+}
+
+function setupAutoHideNav(lenis) {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  const topThreshold = 12;
+  let lastY = 0;
+  let hidden = false;
+
+  function getScrollY() {
+    if (lenis) return lenis.scroll;
+    return window.scrollY || document.documentElement.scrollTop || 0;
+  }
+
+  function setHidden(next) {
+    if (hidden === next) return;
+    hidden = next;
+    header.classList.toggle("is-nav-hidden", hidden);
+  }
+
+  function onScroll() {
+    if (header.classList.contains("is-open")) {
+      setHidden(false);
+      lastY = getScrollY();
+      return;
+    }
+
+    const y = getScrollY();
+    if (y <= topThreshold) {
+      setHidden(false);
+    } else if (y > lastY) {
+      setHidden(true);
+    } else if (y < lastY) {
+      setHidden(false);
+    }
+    lastY = y;
+  }
+
+  lastY = getScrollY();
+
+  if (lenis) {
+    lenis.on("scroll", onScroll);
+  } else {
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+}
+
+function setupCasePager(lenis) {
+  const pager = document.querySelector(".case-pager");
+  const caseEnd = document.querySelector(".case-layout");
+  if (!pager || !caseEnd) return;
+
+  const baseBottom = 28;
+
+  function updatePager() {
+    const endBottom = caseEnd.getBoundingClientRect().bottom;
+    const dockedBottom = window.innerHeight - endBottom;
+    const bottom = Math.max(baseBottom, dockedBottom);
+    pager.style.bottom = `${bottom}px`;
+  }
+
+  updatePager();
+
+  if (lenis) {
+    lenis.on("scroll", updatePager);
+  } else {
+    window.addEventListener("scroll", updatePager, { passive: true });
+  }
+  window.addEventListener("resize", updatePager);
 }
 
 function setupAboutPhotoStack() {
